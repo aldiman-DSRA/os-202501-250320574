@@ -1,25 +1,23 @@
 
-# Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+# Laporan Praktikum Minggu [1]
+Topik: ["Arsitektur Sistem Operasi dan Kernel"]
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : [Aldiman]  
+- **NIM**   : [250320574]  
+- **Kelas** : [SAINS DATA]
 
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+tujuan praktikum minggu ini.   
+menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
 
 ---
 
