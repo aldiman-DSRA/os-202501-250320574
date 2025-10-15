@@ -18,6 +18,7 @@ menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
 ---
 
 ## Dasar Teori
+mempelajari peran utama kernel sebagai inti OS yang mengelola sumber daya perangkat keras dan menjebatani interaksi antara perangkat lunak dan perangkat keras
 
 ---
 
@@ -58,12 +59,20 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 ---
 
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+1. Sebutkan tiga fungsi utama sistem operasi.
+    1.manajemen sumber daya
+    2.menyediakan antarmuka yang memungkinkan pengguna dan program lain untuk berinteraksi
+    3.manajemen proses
+3. Jelaskan perbedaan antara kernel mode dan user mode.
+    1.tingkat hak akses
+    2.manajemen memori
+    3.interaksi dengan perangkat keras
+    4.dampak keamanan
+5. Sebutkan contoh OS dengan arsitektur monolithic dan microkernel.
+    1.arsitektur monolithic
+     contoh OS = LINUX
+    2.arsitektur mikrokernel
+     contoh OS = QNX dan AmigaOS
 
 ---
 
