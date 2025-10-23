@@ -1,0 +1,10 @@
+1.	Execve: Memuat dan menjalankan program baru di dalam proses saat ini. Ini biasanya adalah system call pertama yang dipanggil oleh sebuah proses untuk memulai program itu sendiri.
+2.	Brk: Menyesuaikan ukuran segmen data program, yang digunakan untuk mengalokasikan memori tambahan (heap) yang dibutuhkan program secara dinamis.
+3.	Access: Memeriksa izin akses (membaca, menulis, atau mengeksekusi) ke sebuah file. Ini sering dipanggil untuk memeriksa apakah program memiliki hak untuk mengakses file yang dibutuhkan.
+4.	Open: Membuka file atau sumber daya lain dan mendapatkan file descriptor. File descriptor adalah bilangan bulat yang digunakan untuk merujuk pada file tersebut dalam operasi selanjutnya.
+5.	Read: Membaca data dari file yang terkait dengan file descriptor tertentu ke dalam buffer memori. Ini diperlukan untuk membaca konfigurasi awal atau data lain yang dibutuhkan program.
+6.	Close: Menutup file descriptor yang sebelumnya dibuka, melepaskan sumber daya yang dialokasikan sistem untuk file tersebut.
+7.	Mmap: Memetakan file atau sumber daya perangkat ke dalam ruang alamat memori suatu proses. Ini digunakan untuk memuat library atau file data yang besar secara efisien.
+8.	Stat: Mengambil informasi tentang sebuah file, seperti ukuran, waktu modifikasi, dan izin akses.
+9.	Clone: Menciptakan proses atau thread turunan baru. Ini adalah langkah kunci dalam proses multi-threading atau pembuatan proses anak.
+10.	Exit_group: Mengakhiri semua thread dalam sebuah proses, yang mengakhiri eksekusi program. Ini dipanggil ketika program selesai. 
