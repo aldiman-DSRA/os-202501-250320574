@@ -5,21 +5,35 @@ Topik: [struktur system kernel]
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : [Aldiman]  
+- **NIM**   : [250320574]  
+- **Kelas** : [1DSRA]
 
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+Tujuan praktikum minggu ini.    
+> Menjelaskan konsep dan fungsi system call dalam sistem operasi
+> mengidentifikasi jenis jenis system call dan fungsinya
+> mengamati alur perpindahan mode user ke kernel saat sytem call terjadi
+> menggunakan perintah linux untuk menampilkan dan menganalisis system call
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+1.Inti sistem operasi 
+Kernel adalah bagian inti dari sistem operasi yang selalu berada di dalam memori utama (kernel-space) sejak komputer dinyalakan hingga dimatikan
+2.Jembatan perangkat lunak-perangkat keras
+Fungsi uatamanya adalah sebagai perantara (jembatan) antara aplikasi (yang berjalan di user-space) dan perangkat keras fisik
+3.Manajemen sumber daya 
+Kernel bertanggung jawab penuh atas pengelolaan sumber daya sistem yang vital
+•	Manajemen proses
+Membuat,menjadwalkan ulang, dan menghentikan proses,serta mengalokasikan waktu CPU
+•	Manajemen memori
+Mengalokasikan ruang memori ke berbagai proses dan melindungi ruang memori satu proses dari proses lainya
+•	Manajemen perangkat I/O
+Mengelola komunikasi dengan perangkat keras seperti disk, keyboard, dan jaringan melalui device drivers
+
 
 ---
 
@@ -33,10 +47,9 @@ Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
 
 ## Kode / Perintah
 Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
+strace ls
+strace -e trace=open,read,write,close cat /etc/passwd
+dmesg | tail -n 10
 ```
 
 ---
@@ -55,17 +68,28 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+Kesimpulan dari praktik struktur system kernel secara umum adalah untuk menciptakan keseimbangan antara efisiensi, stabilitas, keamanan, dan fleksibilitas.
 
 ---
 
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+1. [Apa fungsi utama system call dalam sistem operasi?]  
+   **Sebagai jembatan antara aplikasi tingkat pengguna dan kernel sistem operasi untuk meminta layanan-layanan yang disediakan oleh OS:**  
+2. [Sebutkan 4 kategori system call yang umum digunakan.]  
+   **Kontrol proses (process control)
+Contoh: fork(), exit(), wait().
+Manajemen berkas (file management)
+Contoh: open(), read(), write(), close().
+Manajemen perangkat (device management)
+Contoh: ioctl(), read(), write().
+Pemeliharaan informasi (information maintenance)
+Contoh: getpid(), alarm(), sleep()
+:**  
+3. [Mengapa system call tidak bisa dipanggil langsung oleh user program?]  
+   **Pemisahan Hak Akses: Program pengguna berjalan dalam user mode dengan hak akses terbatas, sementara system call membutuhkan kernel mode (hak akses penuh).
+Keamanan dan Proteksi: Akses langsung dapat membuka celah keamanan dan memungkinkan program berbahaya merusak sistem atau data.
+Kontrol dan Validasi: OS perlu memvalidasi dan mengontrol setiap permintaan akses ke sumber daya penting (memori, perangkat keras) untuk mencegah kerusakan sistem (crash).
+:**  
 
 ---
 
