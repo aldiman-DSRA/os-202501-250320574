@@ -1,25 +1,25 @@
 
 # Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+Topik: [Simulasi Algoritma Penjadwalan CPU]
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : [aldiman]  
+- **NIM**   : [250320574]  
+- **Kelas** : [1dsra]
 
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+Tuliskan tujuan praktikum minggu ini.    
+> Membuat program simulasi algoritma penjadwalan FCFS dan/atau SJF.
+> Menjalankan program dengan dataset uji yang diberikan atau dibuat sendiri.
+> Menyajikan output simulasi dalam bentuk tabel atau grafik.
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
 
 ---
 
@@ -32,13 +32,9 @@ Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
 ---
 
 ## Kode / Perintah
-Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
-```
-
+Menghitung waiting time dan turnaround time.
+Mendukung minimal 1 algoritma (FCFS atau SJF non-preemptive).
+Menampilkan hasil dalam tabel.
 ---
 
 ## Hasil Eksekusi
@@ -48,24 +44,45 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
-
+- menjelaskan alur program
+Program membaca dataset proses (arrival time & burst time).
+Proses diurutkan berdasarkan arrival time (FCFS).
+CPU mengeksekusi proses secara berurutan.
+Program menghitung:
+Waiting Time = Start − Arrival
+Turnaround Time = Completion − Arrival
+Hasil ditampilkan dalam tabel dan dihitung rata-ratanya.
+- Perbandingan Simulasi vs Manual
+Hasil simulasi sama persis dengan perhitungan manual FCFS.
+Ini menunjukkan program berjalan benar dan valid.
+-Kelebihan dan Keterbatasan
+  Kelebihan:
+Perhitungan cepat dan akurat
+Mudah diuji dengan berbagai dataset
+Mudah dikembangkan ke algoritma lain
+  Keterbatasan:
+Tidak mencerminkan kondisi sistem nyata sepenuhnya
+FCFS kurang efisien karena convoy effect
+Tidak cocok untuk sistem interaktif
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+Simulasi penjadwalan FCFS berhasil menghitung waiting time dan turnaround time dengan benar sesuai perhitungan manual. Program membantu memahami alur kerja FCFS, namun memiliki keterbatasan karena kurang efisien dan tidak mencerminkan kondisi sistem nyata sepenuhnya.
 
 ---
 
 ## Quiz
 1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+   **Jawaban:Simulasi diperlukan untuk menguji kebenaran dan kinerja algoritma secara cepat dan akurat, terutama saat jumlah proses banyak, sehingga mengurangi kesalahan perhitungan manual dan memudahkan analisis hasil.
+   **  
+3. [Pertanyaan 2]  
+   **Jawaban:Secara teori hasilnya sama, tetapi pada dataset besar:
+Simulasi lebih cepat, konsisten, dan minim kesalahan
+Perhitungan manual memakan waktu lama dan rawan kesalahan manusia
+**  
+5. [Pertanyaan 3]  
+   **Jawaban:Algoritma FCFS lebih mudah diimplementasikan karena hanya mengurutkan proses berdasarkan waktu kedatangan tanpa perhitungan tambahan, sedangkan SJF memerlukan pemilihan burst time terpendek sehingga logikanya lebih kompleks.
+   **  
 
 ---
 
