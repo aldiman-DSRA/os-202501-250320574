@@ -1,25 +1,29 @@
 
 # Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+Topik: [Simulasi dan Deteksi Deadlock]
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : [aldiman]  
+- **NIM**   : [250320574]  
+- **Kelas** : [1dsra]
 
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+Tuliskan tujuan praktikum minggu ini.   
+> Membuat program sederhana untuk mendeteksi deadlock.
+> Menjalankan simulasi deteksi deadlock dengan dataset uji.
+> Menyajikan hasil analisis deadlock dalam bentuk tabel.
+> Memberikan interpretasi hasil uji secara logis dan sistematis.
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+mempelajari mekanisme deteksi deadlock dalam sistem operasi.
+mendeteksi deadlock yang telah terjadi menggunakan pendekatan algoritmik.
+membuat program simulasi sederhana deteksi deadlock. 
 
 ---
 
@@ -32,11 +36,7 @@ Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
 ---
 
 ## Kode / Perintah
-Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
+
 ```
 
 ---
@@ -48,24 +48,75 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+| Proses | Allocation | Request |
+| ------ | ---------- | ------- |
+| P1     | R1         | R2      |
+| P2     | R2         | R3      |
+| P3     | R3         | R1      |
 
+Sistem dalam kondisi DEADLOCK
+Proses yang terlibat deadlock: P1, P2, P3
+
+Validasi Manual / Logis
+Analisis manual menunjukkan:
+P1 menunggu R2 yang dipegang P2
+P2 menunggu R3 yang dipegang P3
+P3 menunggu R1 yang dipegang P1
+
+Terjadi siklus tunggu:
+P1 → P2 → P3 → P1
+
+Mengapa Deadlock Terjadi?
+Deadlock terjadi karena setiap proses:
+Memegang satu resource
+Menunggu resource lain yang sedang dipegang proses lain
+Tidak ada proses yang dapat melanjutkan eksekusi
+
+Kaitan dengan Teori Deadlock (Empat Kondisi)
+Deadlock terjadi karena keempat kondisi deadlock terpenuhi:
+
+Mutual Exclusion
+Resource hanya bisa digunakan satu proses dalam satu waktu.
+Hold and Wait
+Proses memegang resource sambil menunggu resource lain.
+No Preemption
+Resource tidak bisa diambil paksa dari proses lain.
+Circular Wait
+Terjadi siklus menunggu antar proses (P1 → P2 → P3 → P1).
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
-
+sistem terbukti berada dalam kondisi deadlock karena terjadi siklus saling menunggu antar proses. Hasil deteksi program sesuai dengan analisis manual, dan deadlock terjadi karena keempat kondisi deadlock (mutual exclusion, hold and wait, no preemption, dan circular wait) terpenuhi.
 ---
 
 ## Quiz
 1. [Pertanyaan 1]  
-   **Jawaban:**  
+   **Jawaban:
+Deadlock Prevention
+Mencegah deadlock dengan menghilangkan salah satu dari empat kondisi deadlock (misalnya melarang hold and wait).
+Deadlock Avoidance
+Menghindari deadlock dengan mengevaluasi setiap permintaan resource agar sistem tetap dalam kondisi aman (contoh: algoritma Banker).
+Deadlock Detection
+Membiarkan deadlock terjadi, lalu mendeteksi dan menangani deadlock setelah terjadi.**  
 2. [Pertanyaan 2]  
-   **Jawaban:**  
+   **Jawaban:
+Deteksi deadlock diperlukan karena:
+Tidak semua sistem dapat menerapkan prevention atau avoidance
+Lebih fleksibel untuk sistem dengan kebutuhan resource dinamis
+Overhead lebih rendah dibanding avoidance pada sistem besar
+**  
 3. [Pertanyaan 3]  
-   **Jawaban:**  
+   **Jawaban:
+Kelebihan:
+Implementasi relatif sederhana
+Tidak membatasi penggunaan resource
+Cocok untuk sistem dengan beban dinamis
+
+Kekurangan:
+Deadlock dibiarkan terjadi terlebih dahulu
+Memerlukan mekanisme pemulihan (recovery)
+Dapat mengganggu kinerja saat deadlock muncul
+**  
 
 ---
 
