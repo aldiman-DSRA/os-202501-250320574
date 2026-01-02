@@ -1,25 +1,27 @@
 
 # Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+Topik: [Penjadwalan CPU – FCFS dan SJF]
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : [aldiman]  
+- **NIM**   : [250320574]  
+- **Kelas** : [1dsra]
 
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+Tuliskan tujuan praktikum minggu ini.   
+> Tujuan utamanya adalah memahami bagaimana sistem operasi menentukan urutan eksekusi proses, serta bagaimana waiting time dan turnaround time memengaruhi performa sistem.
+
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+waiting time dan turnaround time untuk algoritma FCFS dan SJF.
+performa FCFS dan SJF berdasarkan hasil analisis.
+kelebihan dan kekurangan masing-masing algoritma.
 
 ---
 
@@ -48,24 +50,43 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+Algoritma	Avg Waiting Time	Avg Turnaround Time	Kelebihan	Kekurangan
+FCFS	8.75	14.75	Sederhana dan mudah diterapkan	Tidak efisien untuk proses panjang
+SJF	6.25	12.25	Optimal untuk job pendek	Menyebabkan starvation pada job panjang
+
 
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
-
+SJF lebih efisien dibanding FCFS (WT & TAT lebih kecil)
+Namun SJF berisiko starvation, terutama jika banyak job pendek datang terus-menerus
+FCFS lebih adil, tetapi kurang optimal secara performa
 ---
 
 ## Quiz
 1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+   **Jawaban:perbedaan utaman antara fcfs dan sjf
+aspek=dasar penjadwalan,preemptive,efisiensi,rata rata waiting time,resiko starvation
+fcfs=urutanwaktu kedatangan,tidak,kurang efisien,lebih besar,tidak ada
+sjf=burst time terpendek,bisa(non-preemptive/preemptive,lebih efisien,lebih kecil,ada
+   **  
+3. [Pertanyaan 2]  
+   **Jawaban:Karena proses dengan burst time paling pendek dieksekusi lebih dulu, maka:
+Proses pendek tidak menunggu lama
+Proses panjang memang menunggu, tetapi tidak menambah waktu tunggu total secara signifikan**  
+4. [Pertanyaan 3]  
+   **Jawaban:
+-Starvation=
+Proses dengan burst time panjang bisa tidak pernah dieksekusi,
+Terjadi jika proses pendek terus berdatangan
+
+-Sulit memprediksi burst time=
+Sistem interaktif tidak tahu pasti lama eksekusi user process,
+Estimasi bisa tidak akurat
+
+-Respons buruk untuk user tertentu=
+User dengan proses panjang merasa sistem tidak responsif,
+Tidak cocok untuk sistem yang butuh respon cepat & adil**  
 
 ---
 
