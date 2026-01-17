@@ -1,43 +1,109 @@
 
 # Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+Topik: [Sinkronisasi Proses dan Masalah Deadlock]
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : [aldiman]  
+- **NIM**   : [250320574]  
+- **Kelas** : [1dsra]
 
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+>Mengidentifikasi empat kondisi penyebab deadlock (mutual exclusion, hold and wait, no preemption, circular wait).
+>Menjelaskan mekanisme sinkronisasi menggunakan semaphore atau monitor.
+>menganalisis dan memberikan solusi untuk kasus deadlock
+
+
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+1.deadlock adalah kondisi ketika dua atau lebih proses saling menunggu sumber daya sehingga tidak ada proses yang dapat melanjutkan eksekusi 
+2.deadlock terjadi apabila empat kondisi coffman terpenuhi secara bersamaan
+mutual exculion, hold and wait, no preemption, dan circular wait
+3.sinkronisasi proses digunakan untuk mengatur akses ke sumber daya bersama
+agar tidak terjadi konflik
 
 ---
 
 ## Langkah Praktikum
-1. Langkah-langkah yang dilakukan.  
-2. Perintah yang dijalankan.  
-3. File dan kode yang dibuat.  
-4. Commit message yang digunakan.
+langkah langkah simulasi dining philosophers
+1.menyiapkan python
+2.memasukan kode kedalam python 
+kode pseudocode (versi deadlock) simmulasi dining philosophers
+while true:
+    think()
+    pick_left_fork()
+    pick_right_fork()
+    eat()
+    put_left_fork()
+    put_right_fork()
+    
+3.mengamati proses eksekusi 
+  -perhatikan output awal (semua filsuf berhasil pada kondisi thinking
+  -setiap filsuf berhasil mengambil garpu kiri
+  -semua filsuf mencoba mengambil garpu kanan
+4.mengedentifikasi deadlock
+-program berhenti menmpilkan output
+-tidak ada filsuf yang masuk ke kondisi eating
+-cpu masih aktif,tetapi proses tidak berkembang
+kondisi ini menunjukan deadlock telah terjadi
+5.hasil pada terminal
+  <img width="764" height="925" alt="image" src="https://github.com/user-attachments/assets/a67d5af4-5335-471b-b990-232a26d86491" />
 
----
+langkah langkah versi fixed (deadlock free)
+1.mentiapkan python
+2.memasukan kode pada python
+semaphore room = 4
+semaphore fork[5] = {1,1,1,1,1}
+
+while true:
+    think()
+    wait(room)
+    wait(fork[left])
+    wait(fork[right])
+    eat()
+    signal(fork[left])
+    signal(fork[right])
+    signal(room)
+3.mengamati proses eksekusi
+-program tidak berhenti
+-filsuf beragntian masuk ke kondsisi eating
+-tidak ada kondisi freeze sepeti eksekusi eksperimen 1
+4.hasil pada terminal
+<img width="1920" height="1080" alt="Screenshot 2026-01-17 161724" src="https://github.com/user-attachments/assets/52c9485e-e7b0-4486-a612-7f25095a8dc3" />
+
+analsis deadlock
+| Syarat Deadlock  | Status   | Alasan                                |
+| ---------------- | -------- | ------------------------------------- |
+| Mutual Exclusion | Ada      | Garpu tetap eksklusif                 |
+| Hold and Wait    | Ada      | Filsuf memegang garpu                 |
+| No Preemption    | Ada      | Garpu tidak direbut                   |
+| Circular Wait    | Hilang   | Dibatasi semaphore / urutan asimetris |
+
+
+
+
+
+
 
 ## Kode / Perintah
-Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
-```
+kode pseudocode (versi deadlock) simmulasi dining philosophers
+while true:
+    think()
+    pick_left_fork()
+    pick_right_fork()
+    eat()
+    put_left_fork()
+    put_right_fork()
+  <img width="764" height="925" alt="image" src="https://github.com/user-attachments/assets/a67d5af4-5335-471b-b990-232a26d86491" />
+
+  
+
+  
 
 ---
 
@@ -48,9 +114,6 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
 
 ---
 
