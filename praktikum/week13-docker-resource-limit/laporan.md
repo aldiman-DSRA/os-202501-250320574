@@ -1,42 +1,63 @@
 
 # Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+Topik: [Docker – Resource Limit (CPU & Memori)]
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : [aldiman]  
+- **NIM**   : [250320574]  
+- **Kelas** : [1dsra]
 
 ---
 
-## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+## Tujuan  
+> Menulis Dockerfile sederhana untuk sebuah aplikasi/skrip.
+> Membangun image dan menjalankan container.
+> Menjalankan container dengan pembatasan CPU dan memori.
+> Mengamati dan menjelaskan perbedaan eksekusi container dengan dan tanpa limit resource.
+
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+> Docker dan Container
+Docker memungkinkan aplikasi dijalankan di dalam container, yaitu lingkungan terisolasi yang berisi aplikasi dan dependensinya sehingga dapat berjalan konsisten di berbagai sistem.
+
+> Docker Image dan Dockerfile
+Docker image adalah template untuk membuat container, sedangkan Dockerfile berisi instruksi untuk membangun image secara otomatis dan terstruktur.
+
+> Manajemen Resource
+Docker dapat membatasi penggunaan sumber daya seperti CPU dan memori agar container tidak mengganggu proses lain pada sistem.
 
 ---
 
 ## Langkah Praktikum
-1. Langkah-langkah yang dilakukan.  
-2. Perintah yang dijalankan.  
-3. File dan kode yang dibuat.  
+1. Langkah-langkah yang dilakukan.
+   > membuat program python
+   > membuat dockerfile  
+2. Perintah yang dijalankan.
+   >  Membangun Docker image
+docker build -t resource-test .
+   > Menjalankan container tanpa pembatasan resource
+docker run --rm resource-test
+   > Menjalankan container dengan pembatasan CPU
+docker run --rm --cpus="0.5" resource-test
+   > Menjalankan container dengan pembatasan memori
+docker run --rm --memory="64m" resource-test
+   > Melihat daftar image Docker
+docker images
+3. File dan kode yang dibuat.
 4. Commit message yang digunakan.
 
 ---
 
 ## Kode / Perintah
-Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
+docker build -t resource-test .
+docker run --rm resource-test
+docker run --rm --cpus="0.5" resource-test
+docker run --rm --memory="64m" resource-test
+docker images
 ```
 
 ---
@@ -48,24 +69,28 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+
+Analisis
+Hasil percobaan menunjukkan bahwa Docker mampu menjalankan aplikasi uji dengan baik serta membatasi penggunaan sumber daya sesuai pengaturan. Tanpa pembatasan, aplikasi memanfaatkan CPU secara maksimal sehingga berjalan lebih cepat. Dengan pembatasan CPU, kinerja aplikasi menjadi lebih lambat karena alokasi CPU dibatasi. Pada pembatasan memori, container tidak dapat menggunakan memori melebihi batas yang ditentukan dan proses dihentikan saat batas tercapai. Hal ini membuktikan bahwa Docker efektif dalam mengelola dan mengontrol penggunaan resource.
 
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+1.	Docker berhasil digunakan untuk menjalankan aplikasi uji di dalam container secara terisolasi dan konsisten.
+
+2.	Pembatasan resource seperti CPU dan memori berpengaruh langsung terhadap kinerja aplikasi, di mana pembatasan CPU memperlambat proses dan pembatasan memori membatasi alokasi memori.
+
+3.	Docker efektif dalam mengelola penggunaan sumber daya sistem sehingga mencegah satu aplikasi menggunakan resource secara berlebihan.
 
 ---
 
 ## Quiz
 1. [Pertanyaan 1]  
-   **Jawaban:**  
+   **Pembatasan CPU dan memori diperlukan agar satu container tidak menggunakan seluruh sumber daya sistem. Dengan adanya limit, kinerja sistem tetap stabil dan aplikasi lain yang berjalan tidak terganggu.:**  
 2. [Pertanyaan 2]  
-   **Jawaban:**  
+   **Virtual Machine (VM) memiliki isolasi resource yang lebih kuat karena menggunakan sistem operasi sendiri, sedangkan container berbagi kernel dengan host. Container lebih ringan dan efisien, namun tingkat isolasinya sedikit lebih rendah dibandingkan VM.:**  
 3. [Pertanyaan 3]  
-   **Jawaban:**  
+   **Jika aplikasi menggunakan memori melebihi batas yang ditentukan, proses dapat dihentikan secara paksa atau mengalami error. Hal ini menyebabkan aplikasi berhenti berjalan, namun membantu mencegah kehabisan memori pada sistem secara keseluruhan.:**  
 
 ---
 
