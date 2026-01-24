@@ -56,13 +56,19 @@ Struktur Modul Proyek
 └── Dockerfile   # Konfigurasi container Docker untuk menjalankan aplikasi
 `````
 Fungsi Tiap Modul
+
 A.	main.py
+
 1.	Menyediakan menu CLI.
 2.	Mengatur pemanggilan algoritma berdasarkan pilihan user.
+   
 B.	scheduling.py
+
 1.	fcfs() menghitung waiting time dan turnaround time berdasarkan urutan kedatangan.
 2.	sjf() memilih proses dengan burst time terkecil yang sudah datang.
+   
 C.	pagereplacement.py
+
 1.	fifo() mengganti halaman berdasarkan urutan masuk.
 2.	lru() mengganti halaman yang paling lama tidak digunakan.
 
