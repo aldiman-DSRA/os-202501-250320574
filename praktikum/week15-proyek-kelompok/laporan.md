@@ -4,17 +4,20 @@ Topik: [Proyek Kelompok – Mini Simulasi Sistem Operasi (Scheduling + Memory + 
 
 ---
 
-## Identitas
-- **Nama**  : [aldiman]  
-- **NIM**   : [250320574]  
-- **Kelas** : [1dsra]
-
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+
+tujuan praktikum minggu ini.  
+
+> Bekerja kolaboratif dalam tim dengan pembagian peran yang jelas.
+
+> Mengintegrasikan beberapa konsep sistem operasi dalam satu aplikasi sederhana.
+
+> Mengelola proyek menggunakan Git (branch/PR/commit yang rapi).
+
+> Menyusun dokumentasi dan laporan proyek yang sistematis.
+
 
 ---
 
