@@ -166,7 +166,12 @@ Analisis
 
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+
+1.Integrasi algoritma CPU Scheduling dan Page Replacement berhasil dilakukan dalam satu aplikasi sederhana.
+
+2.Hasil pengujian menunjukkan bahwa SJF dan LRU memberikan kinerja yang lebih efisien dibandingkan FCFS dan FIFO.
+
+3.Penggunaan Docker memastikan aplikasi dapat dijalankan secara konsisten di berbagai lingkungan.
 
 ---
 
